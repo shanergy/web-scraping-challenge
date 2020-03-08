@@ -1,0 +1,8 @@
+# ignore these files:
+mission_to_mars_v1.ipynb
+mission_to_mars_v2.ipynb
+scrape_mars_rough_draft_v1.py
+
+# ignore these directories/folders:
+__pycache__
+.ipynb_checkpoints

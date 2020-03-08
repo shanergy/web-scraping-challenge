@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is the landing page for Web Scraping Homework - Mars Data Dashboard">
+    <meta name="author" content="Shane Gatenby">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="../CSS/style.css"> -->
+    <title>Mars Data</title>
+    <style>
+      .navbar-light { padding: 0% 10%; border-bottom: 5px solid #681f00; color: #c1440e }
+      .navbar-light .navbar-brand { color: #ffffff; font-family: serif, sans-serif, Arial, Helvetica; font-size: 24pt; background-color: #c1440e; padding: 10px 40px; }
+      .navbar-light .navbar-brand:hover { color: #ffffff; }
+      #scrape_button_jumbotron { background-color: #ffffff; padding: 100px 0px 0px 0px;}
+      #news_row { text-align: center; padding: 5px 20px; }
+      #featured_mars_image { width: 75%;  height: 75%; }
+      #mars_hemis_title { text-align: center; align-items: center; }
+      #hemis_1_container img { width: 95%; height: 95%; }
+      #hemis_2_container img { width: 95%; height: 95%; }
+      #hemis_3_container img { width: 95%; height: 95%; }
+      #hemis_4_container img { width: 95%; height: 95%; }
+      .footer{ bottom: 0; position: fixed; width: 100%; background-color: #666666; color: #ffffff; padding: 10px; border-top: 5px solid #681f00; text-align: center; font-size: small; }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-light bg-light navbar-expand-sm fixed-top">
+      <a class="navbar-brand" href="#">Mission to Mars</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/scrape">Scrape New Data</a>
+          </li>
+        </ul>
+      </div> -->
+    </nav>
+
+
+    <!-- <div class="row" id="scrape_button"> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="jumbotron text-center" id="scrape_button_jumbotron">
+            <h1 id="scrape_button_title"><strong>Mission to Mars</strong></h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="news_row">
+      <div class='col-12'>
+        <h2>Latest Mars News</h2>
+        <h4>{{ mars_data.news_hl_title }}</h4>
+        <!-- <h4>Sample: Virginia Middle School Student Earns Honor of Naming NASA's Next Mars Rover</h4> -->
+        <p>{{ mars_data.news_teaser_p }}</p>
+        <!-- <p>Sample: NASA chose a seventh-grader from Virginia as winner of the agency's "Name the Rover" essay contest. Alexander Mather's entry for "Perseverance" was voted tops among 28,000 entries.</p> -->
+      </div>
+    </div>
+
+    <div class="row" id="img_wx_facts">
+      <div class='col-8'>
+        <h2>Featured Mars Image:</h2>
+        <h4>{{ mars_data.featured_image_title }}</h4>
+        <!-- <h5>A Tale of Two Worlds: Silicate Versus Carbon Planets (Artist Concept)</h5> -->
+        <img src="{{ mars_data.featured_image_url }}" alt="{{ mars_data.featured_image_title }}" id="featured_mars_image">
+        <!-- <img src="https://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17550-1920x1200.jpg" alt="A Tale of Two Worlds: Silicate Versus Carbon Planets (Artist Concept)" id="featured_mars_image"> -->
+      </div>
+
+      <div class='col-4'>
+          <div class='row'>
+            <div class='col-12'>
+              <h3>Current Weather on Mars</h3>
+              <p>{{ mars_data.mars_weather }}</p>
+              <!-- <p>Sample: InSight sol 453 (2020-03-05) low -95.1ºC (-139.1ºF) high -10.8ºC (12.6ºF) winds from the SSW at 6.0 m/s (13.3 mph) gusting to 21.4 m/s (47.9 mph) pressure at 6.30 hPa</p> -->
+            </div>
+
+            <div class='col-12'>
+              <h3>Mars Facts</h3>
+              <!-- <p>{{ mars_data.mars_facts_html_table }}</p> -->
+              <p><table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> <th></th> <th>Value</th> </tr> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <th>Equatorial Diameter:</th> <td>6,792 km</td> </tr> <tr> <th>Polar Diameter:</th> <td>6,752 km</td> </tr> <tr> <th>Mass:</th> <td>6.39 × 10^23 kg (0.11 Earths)</td> </tr> <tr> <th>Moons:</th> <td>2 (Phobos &amp; Deimos)</td> </tr> <tr> <th>Orbit Distance:</th> <td>227,943,824 km (1.38 AU)</td> </tr> <tr> <th>Orbit Period:</th> <td>687 days (1.9 years)</td> </tr> <tr> <th>Surface Temperature:</th> <td>-87 to -5 °C</td> </tr> <tr> <th>First Record:</th> <td>2nd millennium BC</td> </tr> <tr> <th>Recorded By:</th> <td>Egyptian astronomers</td> </tr> </tbody> </table></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <h2 id="mars_hemis_title">Mars Hemispheres</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="jumbotron">
+            <div class="row">
+              <div class="container-fluid" id="hemis_1_container">
+                <img src="{{ mars_data.hemisphere_image_urls[0]['img_url'] }}" alt="{{ mars_data.hemisphere_image_urls[0]['title'] }}">
+                <!-- <img src="http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg" alt="Cerberus Hemisphere"> -->
+              </div>
+            </div>
+            <div class="row">
+              <h4>{{ mars_data.hemisphere_image_urls[0]['title'] }}</h4>
+              <!-- <h4>Cerberus Hemisphere</h4> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="jumbotron">
+            <div class="row">
+              <div class="container-fluid" id="hemis_2_container">
+                <img src="{{ mars_data.hemisphere_image_urls[1]['img_url'] }}" alt="{{ mars_data.hemisphere_image_urls[1]['title'] }}">
+                <!-- <img src="http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg" alt="Schiaparelli Hemisphere"> -->
+              </div>
+            </div>
+            <div class="row">
+              <h4>{{ mars_data.hemisphere_image_urls[1]['title'] }}</h4>
+              <!-- <h4>Schiaparelli Hemisphere</h4> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="jumbotron">
+            <div class="row">
+              <div class="container-fluid" id="hemis_3_container">
+                <img src="{{ mars_data.hemisphere_image_urls[2]['img_url'] }}" alt="{{ mars_data.hemisphere_image_urls[2]['title'] }}">
+                <!-- <img src="http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg" alt="Syrtis Major Hemisphere"> -->
+              </div>
+            </div>
+            <div class="row">
+              <h4>{{ mars_data.hemisphere_image_urls[2]['title'] }}</h4>
+              <!-- <h4>Syrtis Major Hemisphere</h4> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="jumbotron">
+            <div class="row">
+              <div class="container-fluid" id="hemis_4_container">
+                <img src="{{ mars_data.hemisphere_image_urls[3]['img_url'] }}" alt="{{ mars_data.hemisphere_image_urls[3]['title'] }}">
+                <!-- <img src="http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg" alt="Valles Marineris Hemisphere"> -->
+              </div>
+            </div>
+            <div class="row">
+              <h4>{{ mars_data.hemisphere_image_urls[3]['title'] }}</h4>
+              <!-- <h4>Valles Marineris Hemisphere</h4> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="footer">
+        &copy; Copyright Shane's Snazzy Super-Duper Spectacularly Mediocre Sites - 2020.  All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+
+  </body>
+
+</html>
+

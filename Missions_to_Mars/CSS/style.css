@@ -1,0 +1,88 @@
+/************************************************/
+/*--  navbar --*/
+/************************************************/
+.navbar-light {
+    padding: 0% 10%;
+    border-bottom: 5px solid #681f00;
+    color: #c1440e
+}
+
+
+.navbar-light .navbar-brand {
+    color: #ffffff;
+    font-family: serif, sans-serif, Arial, Helvetica;
+    font-size: 24pt;
+    background-color: #c1440e;
+    padding: 10px 40px;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #ffffff;
+}
+
+/************************************************/
+/*--  scrape button jumbotron --*/
+/************************************************/
+#scrape_button_jumbotron {
+    background-color: #ffffff;
+    padding: 100px 0px 0px 0px;
+}
+
+/************************************************/
+/*--  news_row --*/
+/************************************************/
+#news_row {
+    text-align: center;
+    padding: 5px 20px;
+}
+
+/************************************************/
+/*--  featured_mars_image --*/
+/************************************************/
+#featured_mars_image {
+    width: 75%; 
+    height: 75%; 
+}
+
+/************************************************/
+/*--  featured_mars_image --*/
+/************************************************/
+#mars_hemis_title {
+    text-align: center;
+    align-items: center;
+}
+
+#hemis_1_container img {
+    width: 95%;
+    height: 95%;
+}
+
+#hemis_2_container img {
+    width: 95%;
+    height: 95%;
+}
+
+#hemis_3_container img {
+    width: 95%;
+    height: 95%;
+}
+
+#hemis_4_container img {
+    width: 95%;
+    height: 95%;
+}
+
+/************************************************/
+/*--  footer --*/
+/************************************************/
+.footer{
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: #666666;
+    color: #ffffff;
+    padding: 10px;
+    border-top: 5px solid #681f00;
+    text-align: center;
+    font-size: small;
+}
